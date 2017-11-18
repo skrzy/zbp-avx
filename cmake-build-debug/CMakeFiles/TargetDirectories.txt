@@ -1,3 +1,0 @@
-/home/kstrek/workspace/zbp-avx/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/kstrek/workspace/zbp-avx/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/kstrek/workspace/zbp-avx/cmake-build-debug/CMakeFiles/zbp_avx.dir
