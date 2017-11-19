@@ -17,7 +17,7 @@ SystemOfEquations::SystemOfEquations(std::string filename) {
 		throw std::runtime_error("n must be a multiplicity of 8");
 	}
 	
-	// Wskaz�wka do zadania 1
+	// Wskazowka do zadania 1
 	size_t bytesMatrix = n * n * sizeof(float);
 	size_t bytesVector = n * sizeof(float);
 	
@@ -36,7 +36,7 @@ SystemOfEquations::SystemOfEquations(std::string filename) {
 	A = (float*)std::align(sizeof(Vec8f), bytesMatrix, tempA, spaceA);
 	B = (float*)std::align(sizeof(Vec8f), bytesVector, tempB, spaceB);
 	X = (float*)std::align(sizeof(Vec8f), bytesVector, tempX, spaceX);
-	// koniec wskaz�wki
+	// koniec wskazowki
 
 	for (int i = 0; i < n; ++i) {
 		for (int j = 0; j < n; ++j) {
