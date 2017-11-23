@@ -101,7 +101,7 @@ void Jacobi::generateAlphaBeta(float *A, float *B, Vec8f * Alpha, Vec8f * Beta, 
             Alpha[i * n / 8 + j].load_a(A + (i * n + j * 8));
             Alpha[i * n / 8 + j] /= divisor;
             if (j * 8 <= i && i < (j + 1) * 8) {
-                Beta[j].insert(i % 8, Alpha[i * n / 8 + j][i % 8]);
+                Beta[j].insert(i % 8, -Alpha[i * n / 8 + j][i % 8]);
                 Alpha[i * n / 8 + j].insert(i % 8, .0);
             }
         }

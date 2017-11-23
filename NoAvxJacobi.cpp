@@ -71,10 +71,10 @@ void NoAvxJacobi::operator()(NoAvxSystemOfEquations &system, int iterations)
 void NoAvxJacobi::generateAlphaBeta(float *A, float *B, float * Alpha, float * Beta, int n)
 {
     for (int i = 0; i < n; i++) {
-        float divisor = -A[i * n + i];
+        float divisor = A[i * n + i];
         Beta[i] = B[i] / divisor;
         for (int j = 0; j < n; j++) {
-            Alpha[i * n + j] = A[i * n + j] / divisor;
+            Alpha[i * n + j] = A[i * n + j] / (-divisor);
         }
         Alpha[i * n + i] = 0;
 //        std::cout << "Alpha = " << std::endl << matrixToString(Alpha, n, n) << std::endl;
