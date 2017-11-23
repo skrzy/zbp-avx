@@ -39,15 +39,15 @@ void NoAvxJacobi::operator()(NoAvxSystemOfEquations &system, int iterations)
     // Zaimplementowac metode wyznaczajaca Alpha i Beta na podstawie A i B
     this->generateAlphaBeta(system.A, system.B, Alpha, Beta, system.n);
 
-    std::cout << "Alpha = " << std::endl << matrixToString(Alpha, system.n, system.n) << std::endl;
-    std::cout << "Beta = " << std::endl << matrixToString(Beta, 1, system.n) << std::endl;
+//    std::cout << "Alpha = " << std::endl << matrixToString(Alpha, system.n, system.n) << std::endl;
+//    std::cout << "Beta = " << std::endl << matrixToString(Beta, 1, system.n) << std::endl;
 
     for (int i = 0; i < iterations; ++i) {
         /// Etap 4
         /// Zaimplementowac metode wykonujaca pojedyncza iteracje algorytmu Jacobiego
-        std::cout << "X(" << i << ") = " << std::endl ;
-        std::cout << matrixToString(X, 1, system.n) << std::endl;
-        std::cout << matrixToString(X_prev, 1, system.n) << std::endl;
+//        std::cout << "X(" << i << ") = " << std::endl ;
+//        std::cout << matrixToString(X, 1, system.n) << std::endl;
+//        std::cout << matrixToString(X_prev, 1, system.n) << std::endl;
 
         this->makeIteration(Alpha, Beta, X_prev, X, system.n);
         std::swap(X, X_prev);

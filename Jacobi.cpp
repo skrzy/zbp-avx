@@ -63,15 +63,15 @@ void Jacobi::operator()(SystemOfEquations &system, int iterations)
 	// Zaimplementowac metode wyznaczajaca Alpha i Beta na podstawie A i B
 	this->generateAlphaBeta(system.A, system.B, Alpha, Beta, system.n);
 
-	std::cout << "Alpha = " << std::endl << avxToString(Alpha, system.n, system.n) << std::endl;
-	std::cout << "Beta = " << std::endl << avxToString(Beta, 1, system.n) << std::endl;
+//	std::cout << "Alpha = " << std::endl << avxToString(Alpha, system.n, system.n) << std::endl;
+//	std::cout << "Beta = " << std::endl << avxToString(Beta, 1, system.n) << std::endl;
 
 	for (int i = 0; i < iterations; ++i) {
 		/// Etap 4
 		/// Zaimplementowac metode wykonujaca pojedyncza iteracje algorytmu Jacobiego
-		std::cout << "X(" << i << ") = " << std::endl ;
-        std::cout << avxToString(X, 1, system.n) << std::endl;
-        std::cout << avxToString(X_prev, 1, system.n) << std::endl;
+//		std::cout << "X(" << i << ") = " << std::endl ;
+//        std::cout << avxToString(X, 1, system.n) << std::endl;
+//        std::cout << avxToString(X_prev, 1, system.n) << std::endl;
 
 		this->makeIteration(Alpha, Beta, X_prev, X, system.n);
 		std::swap(X, X_prev);
@@ -113,12 +113,12 @@ void Jacobi::generateAlphaBeta(float *A, float *B, Vec8f * Alpha, Vec8f * Beta, 
 void Jacobi::makeIteration(const Vec8f * Alpha, const Vec8f * Beta, const Vec8f * X_prev, Vec8f * X, int n)
 {
 	for (int i = 0; i < n; i++) {   // row
-        float sum = .0;
+        Vec8f sum = .0;
         for (int j = 0; j < n / 8; j++) {   // vector in row
-            Vec8f tmp = Alpha[i * n / 8 + j] * X_prev[j];
-            sum += horizontal_add(tmp);
+            sum += Alpha[i * n / 8 + j] * X_prev[j];
+//            sum += horizontal_add(tmp);
         }
-        X[i / 8].insert(i % 8, sum);
+        X[i / 8].insert(i % 8, horizontal_add(sum));
     }
 
     for (int i = 0; i < n / 8; i++) {

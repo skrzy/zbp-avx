@@ -20,7 +20,7 @@ using namespace std::chrono;
 int main() {
 
 	int iters = 20;
-	string dataSet = "system_8.txt";
+	string dataSet = "system_4096.txt";
 
 	/* ---------------- AVX ---------------- */
 	SystemOfEquations system(dataSet);
